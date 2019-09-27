@@ -34,11 +34,10 @@ public class EliminacaoGauss extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -89,8 +88,6 @@ public class EliminacaoGauss extends javax.swing.JFrame {
         centerRenderer.setHorizontalAlignment( JLabel.CENTER );
         jTable1.setDefaultRenderer(String.class, centerRenderer);
 
-        jLabel1.setText("Ordem:");
-
         jButton1.setText("Calcular");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,57 +95,43 @@ public class EliminacaoGauss extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Definir dimensão da matriz");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setText("Método de Eliminação de Gauss");
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane2.setViewportView(jTextArea1);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(42, 42, 42)
-                        .addComponent(jButton2)))
-                .addGap(79, 79, 79))
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 593, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap()
+                        .addComponent(jLabel2))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(61, 61, 61)
-                        .addComponent(jLabel2)))
-                .addContainerGap(161, Short.MAX_VALUE))
+                        .addGap(102, 102, 102)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton1)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 593, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 593, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(96, 105, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addContainerGap()
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(160, 160, 160)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addContainerGap(148, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -165,27 +148,37 @@ public class EliminacaoGauss extends javax.swing.JFrame {
         pack();
     }// </editor-fold>                        
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        // TODO add your handling code here:
-        
-//      DefaultTableModel tableModel = DbUtils.resultSetToTableModel(rs);
-//      tableModel.addColumn(newColumnName);
-//      jTable1.setModel(tableModel);
-
-
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        model.addColumn("asd");
-        //model.addRow(new Object[]{"Column 1", "Column 2", "Column 3"});
-    }                                        
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
-        double[][] matriz = {   {1,2,3,4,10},
+        double[][] teste = {   {1,2,3,4,10},
                                 {2,1,2,3,7},
                                 {3,2,1,2,6},
                                 {4,3,2,1,5}  
                             };
-        metodoEliminacaoGauss(matriz);
+//        int count = 0;
+//        for (int k = 0; k < 1; k++) {
+//            for (int l = 0; l < 11; l++) {
+//                if(jTable1.getValueAt(k,l) != null)
+//                    count+=1;
+//            }
+//        }
+//        
+//        double[][] matriz = new double[count-1][count];
+//        
+//        for (int i = 0; i < matriz.length; i++) {
+//            for (int j = 0; j < matriz[i].length; j++) {
+//                if (j == count-1) {
+//                    matriz[i][j] = Double.parseDouble(jTable1.getValueAt(i,10).toString());
+//                } else if (jTable1.getValueAt(i,j) != null) {
+//                    matriz[i][j] = Double.parseDouble(jTable1.getValueAt(i,j).toString());
+//                }
+//                System.out.print(matriz[i][j]);
+//            }
+//            System.out.println();
+//        }
+        metodoEliminacaoGauss(teste);
+        
+        
     }                                        
 
     /**
@@ -229,45 +222,50 @@ public class EliminacaoGauss extends javax.swing.JFrame {
         double[][] b;
         
         for(int etapa = 0; etapa < a.length-1; etapa++) {
+            System.out.println("Etapa: " + etapa);
+            jTextArea1.append("Etapa: " + String.valueOf(etapa+1) + "\n");
             b = a;
             for(int i = 1+etapa; i < a.length; i++) {
                 pivo = a[etapa][etapa];
-                //System.out.print("pivo: ("+pivo+")   ");
                 m = b[i][etapa] / pivo;
-                //System.out.print("m: ("+m+")   ");
                 for(int j = 0+etapa; j < a[i].length; j++) {
-                    //System.out.print("b:("+b[i][etapa] + ")   ");
                     if(a[i][j] != 0) {
                         a[i][j] = b[i][j] - m * a[i-i+etapa][j];
                     }
                     System.out.print(a[i][j] + "   ");
+                    jTextArea1.append(String.valueOf(a[i][j]) + "   ");
                 }
                 System.out.println();
+                jTextArea1.append("\n");
             }
             System.out.println("---------------------------");
+            jTextArea1.append("---------------------------\n");
         }
         
         imprimi(a);
         return null;
     }
-    
+   
     public static void imprimi(double[][] a) {
+        System.out.println("Sistema equivalente:");
+        jTextArea1.append("Sistema equivalente\n");
         for (int i = 0; i < a.length; i++) {
             for (int j = 0; j < a[i].length; j++) {
                 System.out.print(a[i][j] + "   ");
+                jTextArea1.append(String.valueOf(a[i][j]) + "   ");
             }
             System.out.println();
+            jTextArea1.append("\n");
         }
     }
 
     // Variables declaration - do not modify                     
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private static javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
+    private static javax.swing.JTextArea jTextArea1;
     // End of variables declaration                   
 }
