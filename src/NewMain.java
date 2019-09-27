@@ -14,27 +14,37 @@ public class NewMain {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        double[][] a = {    {1,2,3,4},
-                            {2,1,2,3},
-                            {3,2,1,2},
-                            {4,3,2,1}  
+        double[][] a = {    {1,2,3,4,10},
+                            {2,1,2,3,7},
+                            {3,2,1,2,6},
+                            {4,3,2,1,5}  
+                        };
+        
+        long[][] b = {{1,2,5,3,2},
+                        {1,3,7,3,4},
+                        {0,5,2,2,1},
+                        {1,3,0,1,2},
+                        {0,6,7,4,7},
                         };
         metodoEliminacaoGauss(a);
-        //imprimi(a);
     }
     
     
-    public static int[] metodoEliminacaoGauss(double[][] a) {
+    public static double[][] metodoEliminacaoGauss(double[][] a) {
         double pivo;
-        for(int etapa = 0; etapa < a.length; etapa++) {
-            for(int i = 1; i < a.length; i++) {
-                for(int j = 0; j < a[i].length; j++) {
-                    pivo = a[etapa][i];
-                    if(pivo != 0) {
-                       pivo = pivo/a[i-1][j-j];
-                       a[i][j] = a[i][j] - pivo * a[i-1][j];
-                       System.out.print(a[i][j] + "   ");
+        double m;
+        double[][] b;
+        
+        for(int etapa = 0; etapa < a.length-1; etapa++) {
+            b = a;
+            for(int i = 1+etapa; i < a.length; i++) {
+                pivo = a[etapa][etapa];
+                m = b[i][etapa] / pivo;
+                for(int j = 0+etapa; j < a[i].length; j++) {
+                    if(a[i][j] != 0) {
+                        a[i][j] = b[i][j] - m * a[i-i+etapa][j];
                     }
+                    System.out.print(a[i][j] + "   ");
                 }
                 System.out.println();
             }
